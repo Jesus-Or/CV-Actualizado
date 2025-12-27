@@ -438,15 +438,166 @@
             body {
                 background: white;
                 padding: 0;
+                margin: 0;
+            }
+            
+            body::before {
+                display: none;
             }
             
             .container {
                 box-shadow: none;
                 border-radius: 0;
+                max-width: 100%;
+                margin: 0;
+            }
+            
+            .header {
+                padding: 40px 30px;
+                background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                page-break-after: avoid;
+            }
+            
+            .header::before {
+                display: none;
+            }
+            
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .title {
+                font-size: 1.2rem;
+            }
+            
+            .contact-info {
+                gap: 20px;
+            }
+            
+            .contact-item {
+                background: rgba(255, 255, 255, 0.2);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .main-content {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                gap: 0;
+            }
+            
+            .sidebar {
+                background: #f8fafc;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 30px 25px;
+                border-right: 1px solid #e2e8f0;
+            }
+            
+            .main {
+                padding: 30px 25px;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+                color: #0f172a;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .section-title::after {
+                background: linear-gradient(90deg, #6366f1, #8b5cf6);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .info-item,
+            .skill-item,
+            .reference-item,
+            .education-item,
+            .experience-item {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #e2e8f0;
+                margin-bottom: 12px;
+                padding: 15px;
+            }
+            
+            .skill-progress {
+                background: linear-gradient(90deg, #6366f1, #8b5cf6);
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .skill-progress::after {
+                display: none;
+            }
+            
+            .experience-item {
+                border-left: 4px solid #6366f1;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background: white;
+            }
+            
+            .experience-item::before {
+                color: #6366f1;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .education-item {
+                border-left: 4px solid #8b5cf6;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .info-item {
+                border-left: 3px solid #6366f1;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .job-title,
+            .degree,
+            .ref-name {
+                color: #0f172a;
+            }
+            
+            .company,
+            .ref-position {
+                color: #6366f1;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .institution {
+                color: #8b5cf6;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
             
             .download-btn {
                 display: none;
+            }
+            
+            /* Evitar saltos de página en lugares inapropiados */
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            /* Mantener items juntos */
+            .experience-item,
+            .education-item,
+            .reference-item {
+                page-break-inside: avoid;
             }
         }
         
