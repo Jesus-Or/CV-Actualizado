@@ -3,771 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jesús Ortega - Desarrollador Junior</title>
+    <title>Jesús Ortega | Desarrollador Backend Junior</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #3730a3 100%);
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a, #3730a3);
             min-height: 100vh;
             padding: 40px 20px;
-            position: relative;
-            overflow-x: hidden;
         }
-        
-        body::before {
-            content: '';
-            position: fixed;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: float 20s linear infinite;
-            pointer-events: none;
-        }
-        
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-        
+
         .container {
             max-width: 1000px;
-            margin: 0 auto;
+            margin: auto;
             background: white;
             border-radius: 24px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            position: relative;
-            animation: slideIn 0.6s ease-out;
+            box-shadow: 0 25px 50px rgba(0,0,0,.3);
         }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
+
         .header {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #d946ef);
             color: white;
             padding: 60px 50px;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: pulse 4s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-        
+
         .name {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 700;
-            margin-bottom: 15px;
-            letter-spacing: -1px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
-        
+
         .title {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            font-size: 1.4rem;
+            margin-top: 10px;
+            opacity: .95;
         }
-        
-        .title::before {
-            content: '';
-            display: inline-block;
-            width: 40px;
-            height: 2px;
-            background: white;
-        }
-        
+
         .contact-info {
             display: flex;
-            gap: 35px;
+            gap: 25px;
             flex-wrap: wrap;
             margin-top: 25px;
         }
-        
+
         .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-            padding: 10px 18px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255,255,255,.2);
+            padding: 10px 16px;
             border-radius: 12px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            font-size: .95rem;
         }
-        
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-        }
-        
-        .contact-item i {
-            font-size: 1.2rem;
-        }
-        
+
         .main-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 0;
         }
-        
+
         .sidebar {
-            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 50px 40px;
+            background: #f8fafc;
+            padding: 45px 35px;
             border-right: 1px solid #e2e8f0;
         }
-        
+
         .main {
-            padding: 50px 45px;
+            padding: 45px 40px;
         }
-        
+
         .section {
-            margin-bottom: 45px;
+            margin-bottom: 40px;
         }
-        
-        .section:last-child {
-            margin-bottom: 0;
-        }
-        
+
         .section-title {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 25px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #e2e8f0;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
-        }
-        
-        .info-item {
             margin-bottom: 20px;
-            padding: 18px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            border-left: 3px solid #6366f1;
-            transition: all 0.3s ease;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
         }
-        
-        .info-item:hover {
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
-            transform: translateX(3px);
-        }
-        
-        .info-label {
-            font-weight: 600;
-            color: #475569;
-            margin-bottom: 6px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .info-value {
-            color: #1e293b;
+
+        .profile {
             font-size: 1rem;
+            line-height: 1.8;
+            color: #475569;
         }
-        
-        .skills-grid {
-            display: grid;
-            gap: 18px;
-        }
-        
+
         .skill-item {
             background: white;
-            padding: 18px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
-        }
-        
-        .skill-item:hover {
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
-            transform: translateY(-2px);
-        }
-        
-        .skill-name {
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        
-        .skill-bar {
-            height: 8px;
-            background: #e2e8f0;
+            padding: 15px;
             border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
-            border-radius: 10px;
-            position: relative;
-            transition: width 1s ease-out;
-        }
-        
-        .skill-progress::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shimmer 2s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        .experience-item {
-            margin-bottom: 35px;
-            padding: 30px;
-            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-            border-radius: 16px;
+            margin-bottom: 12px;
             border-left: 4px solid #6366f1;
-            position: relative;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            transition: all 0.3s ease;
         }
-        
-        .experience-item:hover {
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.12);
-            transform: translateX(5px);
+
+        .experience-item {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 14px;
+            margin-bottom: 30px;
+            border-left: 4px solid #6366f1;
         }
-        
-        .experience-item::before {
-            content: '◆';
-            position: absolute;
-            left: -11px;
-            top: 30px;
-            color: #6366f1;
-            font-size: 1.2rem;
-            background: white;
-        }
-        
+
         .job-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 8px;
         }
-        
+
         .company {
-            font-weight: 600;
             color: #6366f1;
-            margin-bottom: 6px;
-            font-size: 1.05rem;
+            font-weight: 600;
         }
-        
+
         .period {
+            font-size: .9rem;
             color: #64748b;
-            font-size: 0.9rem;
-            margin-bottom: 18px;
-            display: inline-block;
-            padding: 4px 12px;
-            background: #f1f5f9;
-            border-radius: 6px;
+            margin: 10px 0;
         }
-        
+
         .job-description {
             color: #475569;
-            line-height: 1.8;
-            font-size: 0.95rem;
+            line-height: 1.7;
+            font-size: .95rem;
         }
-        
-        .job-description strong {
-            color: #1e293b;
-            font-weight: 600;
+
+        ul {
+            margin-top: 10px;
+            padding-left: 18px;
         }
-        
-        .education-item {
-            margin-bottom: 25px;
-            padding: 25px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            border-left: 4px solid #8b5cf6;
-            transition: all 0.3s ease;
-        }
-        
-        .education-item:hover {
-            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
-            transform: translateX(3px);
-        }
-        
-        .degree {
-            font-weight: 700;
-            color: #0f172a;
+
+        li {
             margin-bottom: 8px;
-            font-size: 1.05rem;
         }
-        
-        .institution {
-            color: #8b5cf6;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        
-        .year {
-            color: #64748b;
-            font-size: 0.9rem;
-            padding: 4px 10px;
-            background: #f1f5f9;
-            border-radius: 6px;
-            display: inline-block;
-        }
-        
-        .reference-item {
-            background: white;
-            padding: 22px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            margin-bottom: 18px;
-            transition: all 0.3s ease;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .reference-item:hover {
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.12);
-            border-color: #6366f1;
-        }
-        
-        .ref-name {
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 6px;
-            font-size: 1rem;
-        }
-        
-        .ref-position {
-            color: #6366f1;
-            font-size: 0.9rem;
-            margin-bottom: 6px;
-            font-weight: 500;
-        }
-        
-        .ref-contact {
-            color: #64748b;
-            font-size: 0.9rem;
-        }
-        
+
         .download-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg,#6366f1,#8b5cf6);
             color: white;
-            padding: 16px 28px;
-            border-radius: 50px;
+            padding: 14px 26px;
+            border-radius: 40px;
             text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
-        
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.5);
-        }
-        
-        @media print {
-            body {
-                background: white;
-                padding: 0;
-                margin: 0;
-            }
-            
-            body::before {
-                display: none;
-            }
-            
-            .container {
-                box-shadow: none;
-                border-radius: 0;
-                max-width: 100%;
-                margin: 0;
-            }
-            
-            .header {
-                padding: 40px 30px;
-                background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                page-break-after: avoid;
-            }
-            
-            .header::before {
-                display: none;
-            }
-            
-            .name {
-                font-size: 2.5rem;
-            }
-            
-            .title {
-                font-size: 1.2rem;
-            }
-            
-            .contact-info {
-                gap: 20px;
-            }
-            
-            .contact-item {
-                background: rgba(255, 255, 255, 0.2);
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .main-content {
-                display: grid;
-                grid-template-columns: 1fr 2fr;
-                gap: 0;
-            }
-            
-            .sidebar {
-                background: #f8fafc;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                padding: 30px 25px;
-                border-right: 1px solid #e2e8f0;
-            }
-            
-            .main {
-                padding: 30px 25px;
-            }
-            
-            .section {
-                page-break-inside: avoid;
-                margin-bottom: 25px;
-            }
-            
-            .section-title {
-                font-size: 1.1rem;
-                color: #0f172a;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .section-title::after {
-                background: linear-gradient(90deg, #6366f1, #8b5cf6);
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .info-item,
-            .skill-item,
-            .reference-item,
-            .education-item,
-            .experience-item {
-                page-break-inside: avoid;
-                box-shadow: none;
-                border: 1px solid #e2e8f0;
-                margin-bottom: 12px;
-                padding: 15px;
-            }
-            
-            .skill-progress {
-                background: linear-gradient(90deg, #6366f1, #8b5cf6);
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .skill-progress::after {
-                display: none;
-            }
-            
-            .experience-item {
-                border-left: 4px solid #6366f1;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                background: white;
-            }
-            
-            .experience-item::before {
-                color: #6366f1;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .education-item {
-                border-left: 4px solid #8b5cf6;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .info-item {
-                border-left: 3px solid #6366f1;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .job-title,
-            .degree,
-            .ref-name {
-                color: #0f172a;
-            }
-            
-            .company,
-            .ref-position {
-                color: #6366f1;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .institution {
-                color: #8b5cf6;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-            
-            .download-btn {
-                display: none;
-            }
-            
-            /* Evitar saltos de página en lugares inapropiados */
-            h1, h2, h3 {
-                page-break-after: avoid;
-            }
-            
-            /* Mantener items juntos */
-            .experience-item,
-            .education-item,
-            .reference-item {
-                page-break-inside: avoid;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .name {
-                font-size: 2.5rem;
-            }
-            
-            body {
-                padding: 20px 10px;
-            }
-            
-            .header {
-                padding: 40px 30px;
-            }
-            
-            .sidebar, .main {
-                padding: 35px 25px;
-            }
-            
-            .download-btn {
-                bottom: 20px;
-                right: 20px;
-                padding: 14px 24px;
-            }
+
+        @media(max-width: 768px) {
+            .main-content { grid-template-columns: 1fr; }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="header-content">
-                <h1 class="name">Jesús Ortega</h1>
-                <p class="title">Desarrollador Junior | Analista de Sistemas</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i>📧</i>
-                        <span>jesuortega92@gmail.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i>📱</i>
-                        <span>317 478 0099</span>
-                    </div>
-                    <div class="contact-item">
-                        <i>📍</i>
-                        <span>Fontibón, Bogotá</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="main-content">
-            <div class="sidebar">
-                <div class="section">
-                    <h2 class="section-title">Información Personal</h2>
-                    <div class="info-item">
-                        <div class="info-label">Fecha de Nacimiento</div>
-                        <div class="info-value">01 de Octubre, 1992</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">Lugar de Nacimiento</div>
-                        <div class="info-value">Majagual, Sucre</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-label">Estado Civil</div>
-                        <div class="info-value">Unión Libre</div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <h2 class="section-title">Habilidades Técnicas</h2>
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-name">💻 JavaScript/Node.js</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">🗄️ SQL Server</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">📊 Office 365</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">🔧 Git/GitHub</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 65%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">🛠️ Soporte Técnico</div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <h2 class="section-title">Referencias</h2>
-                    <div class="reference-item">
-                        <div class="ref-name">Jose Luis Lineros Hurtados</div>
-                        <div class="ref-position">Desarrollador de Software e Implementación</div>
-                        <div class="ref-contact">📱 313 636 4889</div>
-                    </div>
-                    <div class="reference-item">
-                        <div class="ref-name">Andrés Alberto Trujillo Alfonso</div>
-                        <div class="ref-position">Coordinador IT</div>
-                        <div class="ref-contact">📱 301 486 9690</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="main">
-                <div class="section">
-                    <h2 class="section-title">Experiencia Profesional</h2>
-                    <div class="experience-item">
-                        <div class="job-title">Analista de Soporte & Desarrollo</div>
-                        <div class="company">Securitas Colombia</div>
-                        <div class="period">2023 - Actualidad</div>
-                        <div class="job-description">
-                            Responsable de brindar soporte técnico a equipos de cómputo y aplicaciones de Office 365, asegurando la continuidad operativa y la atención oportuna a usuarios. 
-                            <br><br>
-                            <strong>Desarrollo:</strong> Participación en proyectos como Junior Developer con tecnologías Node.js y SQL Server, colaborando en el diseño, implementación y optimización de aplicaciones orientadas a la gestión de datos y procesos internos.
-                            <br><br>
-                            <strong>Responsabilidades adicionales:</strong> Documentación técnica, pruebas de sistemas, mantenimiento de aplicaciones, aplicación de buenas prácticas de programación y control de versiones con GitHub.
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section">
-                    <h2 class="section-title">Formación Académica</h2>
-                    <div class="education-item">
-                        <div class="degree">Ingeniería de Sistemas</div>
-                        <div class="institution">CUN - Corporación Unificada Nacional</div>
-                        <div class="year">En proceso</div>
-                    </div>
-                    <div class="education-item">
-                        <div class="degree">Tecnólogo en Análisis & Desarrollo de Sistemas de Información</div>
-                        <div class="institution">SENA - Servicio Nacional de Aprendizaje</div>
-                        <div class="year">2022 - Culminado</div>
-                    </div>
-                    <div class="education-item">
-                        <div class="degree">Bachiller Académico</div>
-                        <div class="institution">Institución Educativa Santander</div>
-                        <div class="year">2009 - Majagual, Sucre</div>
-                    </div>
-                </div>
-            </div>
+
+<div class="container">
+
+    <div class="header">
+        <h1 class="name">Jesús Ortega</h1>
+        <p class="title">Desarrollador Backend Junior | Node.js & SQL Server</p>
+
+        <div class="contact-info">
+            <div class="contact-item">📧 jesuortega92@gmail.com</div>
+            <div class="contact-item">📱 317 478 0099</div>
+            <div class="contact-item">📍 Bogotá, Colombia</div>
+            <div class="contact-item">💻 github.com/jesus-or</div>
         </div>
     </div>
-    
-    <a href="#" class="download-btn" onclick="window.print(); return false;">
-        🖨️ Imprimir CV
-    </a>
+
+    <div class="main-content">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+
+            <div class="section">
+                <h2 class="section-title">Perfil Profesional</h2>
+                <p class="profile">
+                    Desarrollador Backend Junior con experiencia en Node.js y SQL Server.
+                    Actualmente me desempeño como Analista de Soporte & Desarrollo,
+                    participando en aplicaciones internas, automatización de procesos
+                    y gestión de datos. Busco una oportunidad para crecer profesionalmente
+                    como desarrollador backend y aportar valor en proyectos reales.
+                </p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Habilidades Técnicas</h2>
+
+                <div class="skill-item">JavaScript / Node.js (APIs REST, lógica backend)</div>
+                <div class="skill-item">SQL Server (CRUD, consultas, joins)</div>
+                <div class="skill-item">Git / GitHub (control de versiones)</div>
+                <div class="skill-item">Office 365 & Soporte Técnico IT</div>
+                <div class="skill-item">Documentación técnica y pruebas básicas</div>
+            </div>
+
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <div class="section">
+                <h2 class="section-title">Proyectos</h2>
+
+                <div class="experience-item">
+                    <div class="job-title">Sistema de Inventario</div>
+                    <div class="company">Proyecto personal</div>
+                    <div class="period">Node.js · SQL Server</div>
+                    <div class="job-description">
+                        Aplicación backend para gestión de inventario con operaciones CRUD,
+                        manejo de base de datos SQL Server y control de versiones.
+                        <br><br>
+                        🔗 <strong>Repositorio:</strong> github.com/jesus-or
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Experiencia Profesional</h2>
+
+                <div class="experience-item">
+                    <div class="job-title">Analista de Soporte & Desarrollo</div>
+                    <div class="company">Securitas Colombia</div>
+                    <div class="period">2023 - Actualidad</div>
+
+                    <div class="job-description">
+                        <ul>
+                            <li>Soporte técnico a usuarios en hardware, software y Office 365.</li>
+                            <li>Participación en desarrollo de aplicaciones internas con Node.js y SQL Server.</li>
+                            <li>Automatización de procesos y gestión de datos.</li>
+                            <li>Documentación técnica y control de versiones con GitHub.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Formación Académica</h2>
+
+                <div class="experience-item">
+                    <div class="job-title">Ingeniería de Sistemas</div>
+                    <div class="company">CUN</div>
+                    <div class="period">En proceso</div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="job-title">Tecnólogo en Análisis y Desarrollo de Sistemas</div>
+                    <div class="company">SENA</div>
+                    <div class="period">2022</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">Referencias</h2>
+                <p class="job-description">Disponibles a solicitud.</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<a href="#" class="download-btn" onclick="window.print();return false;">🖨️ Imprimir CV</a>
+
 </body>
 </html>
