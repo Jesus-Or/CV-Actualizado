@@ -152,6 +152,72 @@
         @media(max-width: 768px) {
             .main-content { grid-template-columns: 1fr; }
         }
+
+        @media print {
+            @page {
+                size: A4;
+                margin: 8mm;
+            }
+
+            body {
+                background: none;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: 100%;
+            }
+
+            .download-btn {
+                display: none;
+            }
+
+            .header {
+                padding: 30px 40px;
+            }
+
+            .name {
+                font-size: 2.2rem;
+            }
+
+            .title {
+                font-size: 1.1rem;
+            }
+
+            .sidebar, .main {
+                padding: 25px 30px;
+            }
+
+            .section {
+                margin-bottom: 22px;
+            }
+
+            .experience-item {
+                margin-bottom: 16px;
+                padding: 16px 20px;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .skill-item {
+                padding: 10px 15px;
+                margin-bottom: 8px;
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            .section-title {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+
+            .job-title, .company {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+        }
     </style>
 </head>
 
@@ -179,11 +245,12 @@
             <div class="section">
                 <h2 class="section-title">Perfil Profesional</h2>
                 <p class="profile">
-                    Desarrollador Backend Junior con experiencia en Node.js y SQL Server.
-                    Actualmente me desempeño como Analista de Soporte & Desarrollo,
-                    participando en aplicaciones internas, automatización de procesos
-                    y gestión de datos. Busco una oportunidad para crecer profesionalmente
-                    como desarrollador backend y aportar valor en proyectos reales.
+                    Desarrollador Backend en formación, con experiencia construyendo APIs REST en Node.js
+                    y gestionando bases de datos en SQL Server. En mi rol actual en Securitas Colombia
+                    he ampliado mis responsabilidades desde soporte técnico hacia el desarrollo de
+                    aplicaciones internas, liderando la automatización de procesos que antes eran manuales.
+                    Busco dar el siguiente paso hacia un rol enfocado en desarrollo backend, donde pueda
+                    aportar esta experiencia técnica y seguir creciendo como profesional.
                 </p>
             </div>
 
@@ -192,9 +259,10 @@
 
                 <div class="skill-item">JavaScript / Node.js (APIs REST, lógica backend)</div>
                 <div class="skill-item">SQL Server (CRUD, consultas, joins)</div>
+                <div class="skill-item">Power BI (nivel intermedio: dashboards, modelado de datos)</div>
                 <div class="skill-item">Git / GitHub (control de versiones)</div>
                 <div class="skill-item">Office 365 & Soporte Técnico IT</div>
-                <div class="skill-item">Documentación técnica y pruebas básicas</div>
+                <div class="skill-item">Documentación técnica y pruebas de desarrollo</div>
             </div>
 
         </div>
@@ -222,16 +290,15 @@
                 <h2 class="section-title">Experiencia Profesional</h2>
 
                 <div class="experience-item">
-                    <div class="job-title">Analista de Soporte & Desarrollo</div>
+                    <div class="job-title">Soporte TI & Desarrollo Backend</div>
                     <div class="company">Securitas Colombia</div>
                     <div class="period">2023 - Actualidad</div>
 
                     <div class="job-description">
                         <ul>
-                            <li>Soporte técnico a usuarios en hardware, software y Office 365.</li>
-                            <li>Participación en desarrollo de aplicaciones internas con Node.js y SQL Server.</li>
-                            <li>Automatización de procesos y gestión de datos.</li>
+                            <li>Desarrollo de aplicaciones internas con Node.js y SQL Server, incluyendo automatización de procesos de gestión de datos.</li>
                             <li>Documentación técnica y control de versiones con GitHub.</li>
+                            <li>Soporte técnico a usuarios en hardware, software y Office 365.</li>
                         </ul>
                     </div>
                 </div>
